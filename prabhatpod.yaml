@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+
+metadata: 
+  name: my-redis-pod
+  annotations:
+    description: shivankar bhosdk bhadvey
+
+
+spec:
+  containers:
+    - name: redis-contaoners
+      image: redis
+
+
