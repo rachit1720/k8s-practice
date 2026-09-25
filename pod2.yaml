@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+
+
+metadata:
+  name: testpod2
+  annotations:
+    description: multiple container in single pod
+
+
+spec:
+  containers:
+    - name: nginx-container1
+      image: nginx
+    - name: nginx-container2
+      image: nginx
+      
+
+
