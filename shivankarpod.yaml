@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+
+
+
+metadata:
+  name: my-mongodb
+
+spec:
+  containers:
+    - name: mongodb-container
+      image: mongo
+
