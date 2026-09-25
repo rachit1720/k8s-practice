@@ -1,0 +1,23 @@
+kind: ReplicationController
+
+apiVersion: v1
+metadata: 
+  name: myreplicas
+
+spec:
+  replicas: 2
+  selector: 
+    myname: rachitsahni
+ 
+  template:
+    metadata: 
+      name: testpod7
+      labels:
+        myname: rachitsahni
+    spec: 
+      containers:
+        - name: c007
+          image: ubuntu
+          command: ["bin/bash" , "-c" , " while true ; do echo hello-rechit, sleep 5 ; done]
+
+
