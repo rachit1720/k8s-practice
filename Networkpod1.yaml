@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod
+    
+spec:
+  containers:
+  - name: c001
+    image: httpd
+  - name: c002 
+    image: ubuntu
+    ports:
+      - containerPort: 80
+
