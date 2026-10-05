@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: initcontainer
+spec:
+  initContainers:
+    - name: d1
+      image: nginx
+      command: ["/bin/sh", "-c", "echo 'radhey radhey' > /tmp/xchange/testfile; sleep 30"]
+      volumeMounts:
+        - name: xchange
+          mountPath: /tmp/xchange
+
+  containers:
+    - name: d2
+      image: nginx
+      command: ["/bin/sh", "-c", "while true; do cat /tmp/data/testfile; sleep 5; done"]
+      volumeMounts:
+        - name: xchange
+          mountPath: /tmp/data
+
+  volumes:
+    - name: xchange
+      emptyDir: {}
