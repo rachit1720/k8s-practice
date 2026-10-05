@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hpa-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hpa-demo
+  template:
+    metadata:
+      labels:
+        app: hpa-demo
+    spec:
+      containers:
+        - name: ubuntu
+          image: ubuntu:22.04
+          command: ["sleep", "infinity"]
+          resources:
+            requests:
+              cpu: "300m"
+              memory: "192Mi"
